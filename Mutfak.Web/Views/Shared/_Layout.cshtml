@@ -1,0 +1,64 @@
+﻿@using Mutfak.Util
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/s/css/main.css" rel="stylesheet" />
+    @RenderSection("Head",false)
+</head>
+
+@{
+    var sitename = "İkinci El Mutfak Malzemeleri";
+    
+
+    var about = "Hakkında";
+    var referans = "Referanslarımız";
+    var contact = "İletişim";
+}
+
+<body>
+    <div class="container">
+
+        <div id="header" class="clearfix">
+            <div class="clearfix">
+                
+                <div id="title">
+                    <h1 style="text-align: center;">
+                        <a href="/">@sitename</a>
+                    </h1>
+                </div>
+            </div>
+            <hr />
+            <div style="height: 7px;"></div>
+
+            
+
+        </div>
+        @RenderBody()
+        <div class="clearfix"></div>
+        <hr class="clearfix" />
+        <div id="footer" class="clearfix">
+            <div style="text-align: center">
+                <p>
+                    <strong>Çavuşoğlu Mahallesi Bozkır Çıkmazı No:1
+                        <br />
+                        (Akasya Evleri Yanı) Kartal – İstanbul</strong>
+                </p>
+                
+
+                <p>Tel: 0216 590 01 27 </p>
+
+                <p>Mobil: 0 532 286 66 86</p>
+                <p><a class="afoot" href="/home/about">@about</a>&nbsp;&nbsp;<a class="afoot" href="/home/contact">@contact</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/s/js/jquery-1.9.1.min.js"></script>
+    <script src="~/s/js/jquery-ui-1.10.2.min.js"></script>
+    <script src="~/s/js/jquery.validate.min.js"></script>
+    <script src="~/s/js/jquery.cookie.js"></script>
+    @RenderSection("Script", false)
+</body>
+</html>

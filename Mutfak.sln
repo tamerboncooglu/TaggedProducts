@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutfak.Domain", "Mutfak.Domain\Mutfak.Domain.csproj", "{F3B206BD-3268-48DF-9A1B-CFA1995814CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutfak.Web", "Mutfak.Web\Mutfak.Web.csproj", "{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutfak.Utils", "Mutfak.Util\Mutfak.Utils.csproj", "{5A3140BB-6D07-4578-8124-82C4D7903D52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{065FF074-F33D-49D3-873F-EB76B869DE73}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3B206BD-3268-48DF-9A1B-CFA1995814CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B206BD-3268-48DF-9A1B-CFA1995814CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B206BD-3268-48DF-9A1B-CFA1995814CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B206BD-3268-48DF-9A1B-CFA1995814CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A3140BB-6D07-4578-8124-82C4D7903D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3140BB-6D07-4578-8124-82C4D7903D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3140BB-6D07-4578-8124-82C4D7903D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3140BB-6D07-4578-8124-82C4D7903D52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

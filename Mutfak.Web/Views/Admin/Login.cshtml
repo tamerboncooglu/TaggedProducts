@@ -1,0 +1,39 @@
+﻿@model Mutfak.Web.Models.LoginModel
+
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Bodrum Emlak (Property) Info
+    <br />
+    Yönetim Paneli</h1>
+<br />
+
+@Html.Partial("Component/_ModelMsg", Model)
+
+<form id="frm" name="frm" class="form-horizontal" action="/admin/login" method="POST">
+
+    <div class="control-group">
+        <label for="User">Kullanıcı Adı :</label>
+        <input type="text" name="User" class="required" />
+    </div>
+
+    <div class="control-group">
+        <label for="Password">Şifre :</label>
+        <input type="password" name="Password" id="Password" class="required" />
+    </div>
+
+    <div class="control-group">
+        @Html.AntiForgeryToken()
+        <input type="submit" class="btn btn-primary" value="Giriş" />
+    </div>
+</form>
+
+@section Script {
+    <script src="~/s/js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#frm').validate();
+        });
+    </script>
+}

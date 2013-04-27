@@ -1,0 +1,16 @@
+﻿@model Mutfak.Web.Models.PagingModel
+
+@if (Model != null 
+    && Model.TotalPageCount > 1)
+{
+    <div class="pagination">
+        <ul>
+            <li class="@(Model.HasPreviousPage ? "disabled" : string.Empty)"><a href="@string.Format("{0}?page={1}", Model.PageUrl, Model.PageIndex - 1)"><<</a></li>
+            @for (int i = 1; i < Model.TotalPageCount + 1; i++)
+            {
+                <li class="@(Model.PageIndex == i ? "active" : string.Empty)"><a href="@string.Format("{0}?page={1}", Model.PageUrl, i)">@i</a></li>
+            }
+            <li class="@(Model.HasNextPage ? "disabled" : string.Empty)"><a href="@string.Format("{0}?page={1}", Model.PageUrl, Model.PageIndex + 1)">>></a></li>
+        </ul>
+    </div>
+}

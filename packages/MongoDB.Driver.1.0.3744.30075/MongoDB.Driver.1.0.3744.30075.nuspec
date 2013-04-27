@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MongoDB.Driver</id>
+    <version>1.0.3744.30075</version>
+    <title>MongoDB.Driver</title>
+    <authors>code.google.com/p/mongodb-net/</authors>
+    <owners>code.google.com/p/mongodb-net/</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://code.google.com/p/mongodb-net/</projectUrl>
+    <iconUrl>http://code.google.com/p/mongodb-net/logo?cct=1263186966</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>mongodb-net (MongoDB.Driver.dll) is a .Net driver for MongoDB. Initially ported from the Java Driver, it is now written entirely in C# and care has been to taken to leverage .NET language features where appropriate. Due to the nature of .NET assemblies, this work should be usable in any .NET language (C#, VB.NET, etc.)</description>
+    <summary>A MongoDB Driver in C# for .NET Languages</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+  </metadata>
+</package>

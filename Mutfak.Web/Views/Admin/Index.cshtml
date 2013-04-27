@@ -1,0 +1,92 @@
+﻿@model Mutfak.Web.Models.GridModel
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@Html.Partial("_AdminMenu")
+<br />
+<a href="/admin/exportexcel" class="btn btn-success">Ürünleri Excele Çıkart</a>
+
+@Html.Partial("Component/_ModelMsg", Model)
+
+@Html.Partial("Component/_Grid", Model)
+
+@section Script
+{
+
+    <script>
+        function deleteItem(id) {
+            $.ajax({
+                type: "POST",
+                url: "/admin/productdelete",
+                data: "id=" + id,
+                success: function (r) {
+                    if (r != null) {
+                        if (r.OK) {
+                            $('#btnDel' + id).parent().parent().remove();
+                            $('#modal-from-dom').modal('hide');
+                        } else {
+                            $('#modal-from-dom .modal-body').html($('#modal-from-dom .modal-body').html() + "<br/><br/>" + "<p>İşlem sırasında bir sorun oluştu lütfen tekrar deneyiniz.</p>");
+                        }
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            
+            $('#modal-from-dom').bind('show', function () {
+                var id = $(this).data('id'),
+                    itemName = $('#btnDel' + id).data('name'),
+                    removeBtn = $(this).find('.btn-danger');
+                removeBtn.attr('onclick', "javascript:deleteItem('" + id + "')");
+
+                $('.modal-body').html(itemName + " silinecek!");
+            });
+
+            $('.confirm-delete').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).data('id');
+                $('#modal-from-dom').data('id', id).modal('show');
+            });
+          
+
+            $('.btn-sold').click(function () {
+                var id = $(this).data('id');
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/setsold",
+                    data: "id=" + id,
+                    success: function (r) {
+                        if (r != null) {
+                            if (r.OK) {
+                                $('#btnSold' + id).remove();
+                            } else {
+                                alert("İşlem sırasında bir sorun oluştu lütfen tekrar deneyiniz.");
+                            }
+                        }
+                    }
+                });
+            });
+            
+            $('.btn-unsold').click(function () {
+                var id = $(this).data('id');
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/setunsold",
+                    data: "id=" + id,
+                    success: function (r) {
+                        if (r != null) {
+                            if (r.OK) {
+                                $('#btnSoldCancel' + id).remove();
+                            } else {
+                                alert("İşlem sırasında bir sorun oluştu lütfen tekrar deneyiniz.");
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+}

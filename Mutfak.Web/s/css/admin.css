@@ -1,0 +1,7 @@
+
+.modal-body-sold,.modal-body-read {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    position: relative;
+}

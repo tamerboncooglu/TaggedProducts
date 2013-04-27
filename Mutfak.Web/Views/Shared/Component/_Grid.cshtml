@@ -1,0 +1,46 @@
+﻿@model Mutfak.Web.Models.GridModel
+
+
+<h3>@Model.Title</h3>
+
+@if (Model.IsAddButtonVisible)
+{
+    <a href="@(Model.AddLink)" class="btn btn-primary">@string.Format("{0} Ekle", Model.Name)</a>
+    <br />
+}
+
+@if (!string.IsNullOrEmpty(Model.DataLinesAsHtmlTr))
+{
+    <table class="table table-bordered table-striped table-hover" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th></th>
+
+                @foreach (var header in Model.TableHeaders)
+                {
+                    <th>@header</th>
+                }
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.DataLinesAsHtmlTr)
+        {
+            @Html.Raw(item)
+        }
+    </table>
+
+    @Html.Partial("Component/_Paging", Model.Paging)
+}
+
+<div id="modal-from-dom" class="modal fade hidden">
+    <div class="modal-header">
+        <a href="#" onclick="javascript:$('#modal-from-dom').modal('hide');" class="close">&times;</a>
+        <h3>Emin Misiniz?</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-danger">Evet</a>
+        <a href="#" onclick="javascript:$('#modal-from-dom').modal('hide');" class="btn">Hayır</a>
+    </div>
+</div>

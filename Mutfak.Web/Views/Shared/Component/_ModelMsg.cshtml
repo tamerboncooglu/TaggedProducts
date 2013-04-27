@@ -1,0 +1,12 @@
+﻿@model Mutfak.Web.Models.BaseModel
+
+<div class="alert-message">
+    @if (Model != null
+    && !string.IsNullOrEmpty(Model.Msg))
+    {
+        <div class="alert @Html.Raw(Model.OK ? "alert-success" : "alert-error")">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>@Html.Raw(Model.Msg)</strong>
+        </div>
+    }
+</div>

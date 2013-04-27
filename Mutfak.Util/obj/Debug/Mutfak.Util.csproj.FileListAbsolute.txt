@@ -1,0 +1,4 @@
+c:\users\tamerpc\documents\visual studio 2012\Projects\Mutfak\Mutfak.Util\bin\Debug\Mutfak.Util.dll
+c:\users\tamerpc\documents\visual studio 2012\Projects\Mutfak\Mutfak.Util\bin\Debug\Mutfak.Util.pdb
+c:\users\tamerpc\documents\visual studio 2012\Projects\Mutfak\Mutfak.Util\obj\Debug\Mutfak.Util.dll
+c:\users\tamerpc\documents\visual studio 2012\Projects\Mutfak\Mutfak.Util\obj\Debug\Mutfak.Util.pdb
