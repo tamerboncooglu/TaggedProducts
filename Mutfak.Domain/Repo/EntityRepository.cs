@@ -36,7 +36,7 @@ namespace Mutfak.Domain.Repo
 
         public EntityRepository()
         {
-            _mongoDatabase = new MongoClient().GetServer().GetDatabase("BodrumEmlak");
+            _mongoDatabase = new MongoClient().GetServer().GetDatabase("ProductTags");
             _collection = _mongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name, WriteConcern.Acknowledged);
         }
 

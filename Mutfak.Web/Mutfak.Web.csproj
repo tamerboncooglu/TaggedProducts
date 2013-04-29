@@ -137,6 +137,9 @@
     <Compile Include="Models\GridModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PagingModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\TagListModel.cs" />
+    <Compile Include="Models\TagModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="s\css\images\product\" />
     <Folder Include="s\img\mutfak\" />
   </ItemGroup>
   <ItemGroup>
@@ -282,6 +286,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Tag.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\TagAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Add.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

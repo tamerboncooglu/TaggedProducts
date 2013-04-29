@@ -1,0 +1,31 @@
+﻿@model Mutfak.Web.Models.TagListModel
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.Partial("_AdminMenu")
+
+<br />
+<h3>Etiket Ekleme Ekranı</h3>
+
+<br />
+
+<form id="frm" name="frm" action="/admin/tagadd" method="POST">
+    Etiket:
+    <br />
+    <input type="text" name="TagName" class="required" />
+    <br />
+    @Html.AntiForgeryToken()
+    <input type="submit" class="btn btn-primary" value="Ekle" />
+
+</form>
+
+
+@section Script 
+{
+    <script>
+        $(function() {
+            $('#frm').validate();
+        });
+    </script>
+}

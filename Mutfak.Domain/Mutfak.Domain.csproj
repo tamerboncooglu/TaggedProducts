@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\BaseEntity.cs" />
-    <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\Tag.cs" />
     <Compile Include="Entity\Contact.cs" />
     <Compile Include="Entity\PagedList.cs" />
     <Compile Include="Entity\Product.cs" />

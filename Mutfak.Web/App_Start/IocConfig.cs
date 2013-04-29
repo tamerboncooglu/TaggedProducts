@@ -10,7 +10,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using MongoDB.Driver;
 using Mutfak.Domain.Repo;
-using Mutfak.Util;
+using Mutfak.Utils;
 using Mutfak.Web.Controllers;
 
 namespace Mutfak.Web.App_Start
