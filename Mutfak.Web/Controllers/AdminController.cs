@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver.Builders;
-using Mutfak.Domain.Entity;
-using Mutfak.Domain.Repo;
-using Mutfak.Utils;
-using Mutfak.Web.App_Start;
-using Mutfak.Web.Models;
+using TaggedProducts.Domain.Entity;
+using TaggedProducts.Domain.Repo;
+using TaggedProducts.Utils;
+using TaggedProducts.Web.App_Start;
+using TaggedProducts.Web.Models;
 
-namespace Mutfak.Web.Controllers
+namespace TaggedProducts.Web.Controllers
 {
     public class AdminController : Controller
     {

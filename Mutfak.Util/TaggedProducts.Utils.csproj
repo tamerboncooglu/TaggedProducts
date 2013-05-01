@@ -7,8 +7,8 @@
     <ProjectGuid>{5A3140BB-6D07-4578-8124-82C4D7903D52}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mutfak.Utils</RootNamespace>
-    <AssemblyName>Mutfak.Utils</AssemblyName>
+    <RootNamespace>TaggedProducts.Utils</RootNamespace>
+    <AssemblyName>TaggedProducts.Utils</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

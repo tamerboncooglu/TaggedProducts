@@ -1,4 +1,4 @@
-﻿namespace Mutfak.Domain.Entity
+﻿namespace TaggedProducts.Domain.Entity
 {
     public class Tag : BaseEntity
     {

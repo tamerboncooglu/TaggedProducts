@@ -1,0 +1,5 @@
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\bin\Debug\Mutfak.Utils.dll
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\bin\Debug\Mutfak.Utils.pdb
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\obj\Debug\Mutfak.Utils.csprojResolveAssemblyReference.cache
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\obj\Debug\Mutfak.Utils.dll
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\obj\Debug\Mutfak.Utils.pdb

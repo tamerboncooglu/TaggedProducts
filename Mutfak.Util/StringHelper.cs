@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Mutfak.Utils
+namespace TaggedProducts.Utils
 {
     public static class StringHelper
     {

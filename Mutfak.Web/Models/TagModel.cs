@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Mutfak.Web.Models
+﻿namespace TaggedProducts.Web.Models
 {
     public class TagModel : BaseModel
     {

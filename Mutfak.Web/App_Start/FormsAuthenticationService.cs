@@ -1,6 +1,6 @@
 ﻿using System.Web.Security;
 
-namespace Mutfak.Web.App_Start
+namespace TaggedProducts.Web.App_Start
 {
     public interface IFormsAuthenticationService
     {

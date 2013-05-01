@@ -1,7 +1,7 @@
 ﻿using System;
 using MongoDB.Bson;
 
-namespace Mutfak.Domain.Entity
+namespace TaggedProducts.Domain.Entity
 {
     public class BaseEntity
     {

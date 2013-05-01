@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using MongoDB.Driver;
-using Mutfak.Domain.Entity;
+using TaggedProducts.Domain.Entity;
 
-namespace Mutfak.Domain.Repo
+namespace TaggedProducts.Domain.Repo
 {
     public interface IEntityRepository<TEntity> where TEntity : BaseEntity
     {

@@ -1,4 +1,4 @@
-﻿namespace Mutfak.Utils
+﻿namespace TaggedProducts.Utils
 {
     using System.Web;
     using System.Drawing;

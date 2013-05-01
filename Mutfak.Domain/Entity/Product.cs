@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mutfak.Domain.Entity
+namespace TaggedProducts.Domain.Entity
 {
     public class Product : BaseEntity
     {

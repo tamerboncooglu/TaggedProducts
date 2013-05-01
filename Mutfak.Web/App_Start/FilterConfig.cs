@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace Mutfak.Web
+namespace TaggedProducts.Web
 {
     public class FilterConfig
     {

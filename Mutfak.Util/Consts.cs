@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mutfak.Utils
+namespace TaggedProducts.Utils
 {
     public class Consts
     {

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web;
 
-namespace Mutfak.Web.Models
+namespace TaggedProducts.Web.Models
 {
     public class ProductModel : BaseModel
     {

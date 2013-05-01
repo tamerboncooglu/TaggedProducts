@@ -1,4 +1,4 @@
-﻿namespace Mutfak.Web.Models
+﻿namespace TaggedProducts.Web.Models
 {
     public class BaseModel
     {

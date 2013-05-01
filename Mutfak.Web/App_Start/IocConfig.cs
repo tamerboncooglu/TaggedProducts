@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -9,11 +7,11 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using MongoDB.Driver;
-using Mutfak.Domain.Repo;
-using Mutfak.Utils;
-using Mutfak.Web.Controllers;
+using TaggedProducts.Domain.Repo;
+using TaggedProducts.Utils;
+using TaggedProducts.Web.Controllers;
 
-namespace Mutfak.Web.App_Start
+namespace TaggedProducts.Web.App_Start
 {
     public class WindsorControllerFactory : DefaultControllerFactory
     {

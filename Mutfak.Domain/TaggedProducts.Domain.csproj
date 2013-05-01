@@ -7,8 +7,8 @@
     <ProjectGuid>{F3B206BD-3268-48DF-9A1B-CFA1995814CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mutfak.Domain</RootNamespace>
-    <AssemblyName>Mutfak.Domain</AssemblyName>
+    <RootNamespace>TaggedProducts.Domain</RootNamespace>
+    <AssemblyName>TaggedProducts.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

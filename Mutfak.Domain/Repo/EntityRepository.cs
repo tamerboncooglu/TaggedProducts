@@ -6,9 +6,9 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
-using Mutfak.Domain.Entity;
+using TaggedProducts.Domain.Entity;
 
-namespace Mutfak.Domain.Repo
+namespace TaggedProducts.Domain.Repo
 {
     public static class Extensions
     {

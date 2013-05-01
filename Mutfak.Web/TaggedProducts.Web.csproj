@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mutfak.Web</RootNamespace>
-    <AssemblyName>Mutfak.Web</AssemblyName>
+    <RootNamespace>TaggedProducts.Web</RootNamespace>
+    <AssemblyName>TaggedProducts.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -242,13 +242,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mutfak.Domain\Mutfak.Domain.csproj">
+    <ProjectReference Include="..\Mutfak.Domain\TaggedProducts.Domain.csproj">
       <Project>{f3b206bd-3268-48df-9a1b-cfa1995814ca}</Project>
-      <Name>Mutfak.Domain</Name>
+      <Name>TaggedProducts.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mutfak.Util\Mutfak.Utils.csproj">
+    <ProjectReference Include="..\Mutfak.Util\TaggedProducts.Utils.csproj">
       <Project>{5a3140bb-6d07-4578-8124-82c4d7903d52}</Project>
-      <Name>Mutfak.Utils</Name>
+      <Name>TaggedProducts.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

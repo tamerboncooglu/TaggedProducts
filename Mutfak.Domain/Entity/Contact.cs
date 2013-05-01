@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mutfak.Domain.Entity
+namespace TaggedProducts.Domain.Entity
 {
     public class Contact : BaseEntity
     {

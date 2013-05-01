@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mutfak.Domain.Entity
+namespace TaggedProducts.Domain.Entity
 {
     public class PagedList<T> where T : BaseEntity
     {

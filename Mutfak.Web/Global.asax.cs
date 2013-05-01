@@ -2,7 +2,8 @@
 using System.Web.Routing;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using Mutfak.Web.App_Start;
+using TaggedProducts.Web;
+using TaggedProducts.Web.App_Start;
 
 namespace Mutfak.Web
 {

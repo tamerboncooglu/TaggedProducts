@@ -1,6 +1,4 @@
-﻿using Mutfak.Web.Models;
-
-namespace Mutfak.Web.Models
+﻿namespace TaggedProducts.Web.Models
 {
     using System.ComponentModel.DataAnnotations;
 
