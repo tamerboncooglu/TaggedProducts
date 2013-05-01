@@ -13,7 +13,7 @@
 <form id="frm" name="frm" action="/admin/tagadd" method="POST">
     Etiket:
     <br />
-    <input type="text" name="TagName" class="required" />
+    <input type="text" name="TagName" id="TagName" class="required" />
     <br />
     @Html.AntiForgeryToken()
     <input type="submit" class="btn btn-primary" value="Ekle" />
@@ -26,6 +26,7 @@
     <script>
         $(function() {
             $('#frm').validate();
+            $('#TagName').focus();
         });
     </script>
 }

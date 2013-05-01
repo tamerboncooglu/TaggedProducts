@@ -1,4 +1,0 @@
-C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\bin\Debug\TaggedProducts.Utils.dll
-C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\bin\Debug\TaggedProducts.Utils.pdb
-C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\obj\Debug\TaggedProducts.Utils.dll
-C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Util\obj\Debug\TaggedProducts.Utils.pdb

@@ -77,9 +77,7 @@ namespace TaggedProducts.Web.Controllers
 
                     //var btnTweet = string.Format("<input type=\"button\" class=\"btn btn-mini btn-primary\" onclick=\"javascript:document.location.href='/admin/sendtweeter/{0}';\" value=\"Send Tweeter\" /><br/><br/>", dto.Id);
                     //var btnFacebook = string.Format("<input type=\"button\" class=\"btn btn-mini btn-primary\" onclick=\"javascript:document.location.href='/admin/sendfacebook/{0}';\" value=\"Send Facebook\" /><br/>", dto.Id);
-
-
-
+                    
                     model.DataLinesAsHtmlTr += string.Format("<tr><td>{0} {1} {2}</td><td>{3}</td><td>{4}</td><td>{5}</td><td><a href='/product/{3}' target='_blank'>{6}</a></td><td>{7}</td><td>{8}</td><td><img src='{9}' alt='{5}' class='img-polaroid' style='' /></td></tr>",
                         btnDel, btnPasive, btnEdit, dto.Code, GetTagContainer(dto.Id), dto.Title, dto.Name, string.Format("{0:0,0}", dto.Price), dto.Description, dto.ImageUrlPrimary);
                 }
@@ -297,8 +295,7 @@ namespace TaggedProducts.Web.Controllers
             var imgUrlBigs = new List<string>();
             var imgUrlSmalls = new List<string>();
 
-            var imgurlsmall = string.Empty;
-            var imgurl960 = string.Empty;
+            string imgurl960 = string.Empty;
 
             if (model.Images != null)
             {
@@ -328,7 +325,7 @@ namespace TaggedProducts.Web.Controllers
 
                                     //ImageWatermark(path);
 
-                                    imgurlsmall = string.Format("/s/img/product/k{0}", fileName);
+                                    string imgurlsmall = string.Format("/s/img/product/k{0}", fileName);
                                     imgurl960 = string.Format("/s/img/product/b{0}", fileName);
 
                                     FileHelper.SaveImageAs250(
@@ -386,6 +383,176 @@ namespace TaggedProducts.Web.Controllers
             {
                 //CreateSiteMap();
                 return Redirect("/admin");
+            }
+
+            model.Msg = "Bir sorun oluştu lütfen tekrar deneyiniz.";
+            return View(model);
+        }
+
+        [HttpGet]
+        public ViewResult Edit(string id)
+        {
+            ViewBag.Tags = _tagRepo.AsQueryable().ToList();
+            var model = new ProductModel();
+            ObjectId pid;
+            if (ObjectId.TryParse(id, out pid))
+            {
+                var product = _productRepo.AsQueryable().FirstOrDefault(w => w.Id == pid);
+                if (product != null)
+                {
+                    model.Currency = product.Currency;
+                    model.Description = product.Description;
+                    model.Code = product.Code;
+                    model.HtmlDescription = product.HtmlDescription;
+                    model.Name = product.Name;
+                    model.Price = product.Price;
+                    model.Tags = product.Tags;
+                    model.Id = product.IdStr;
+                    model.ImageUrls = product.ImageUrls;
+                }
+                else
+                    RedirectToAction("Index");
+            }
+            else
+                RedirectToAction("Index");
+            return View(model);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Edit(ProductModel model)
+        {
+            ViewBag.Tags = _tagRepo.AsQueryable().ToList();
+
+            var time = DateTime.Now;
+
+            if (string.IsNullOrEmpty(model.Price.ToString(CultureInfo.InvariantCulture))
+                && string.IsNullOrEmpty(model.Title)
+                && string.IsNullOrEmpty(model.Code)
+                && string.IsNullOrEmpty(model.Currency)
+                && string.IsNullOrEmpty(model.Description)
+                && string.IsNullOrEmpty(model.Name)
+                && model.Tags.Count <= 0)
+            {
+                model.Msg = "Girilmesi gereken alanlar mevcut";
+                return View(model);
+            }
+
+            var productMain = _productRepo.AsQueryable().FirstOrDefault(w => w.Id == ObjectId.Parse(model.Id));
+            if (productMain == null)
+            {
+                model.Msg = "Kayıda ulaşılamadı";
+                return View(model);
+            }
+
+            var savePath = string.Empty;
+
+
+            var imgurlsmall = string.Empty;
+            var imgurlbig = string.Empty;
+            var imgurl960 = string.Empty;
+            var imgUrls = new List<string>();
+            var imgUrlBigs = new List<string>();
+            var imgUrlSmalls = new List<string>();
+
+
+            foreach (var imageUrl in productMain.ImageUrls)
+            {
+                imgUrls.Add(imageUrl);
+            }
+
+            foreach (var imageUrl in productMain.ImageUrlSmalls)
+            {
+                imgUrlSmalls.Add(imageUrl);
+            }
+
+            foreach (var imageUrl in productMain.ImageUrlBigs)
+            {
+                imgUrlBigs.Add(imageUrl);
+            }
+
+            imgurlbig = productMain.ImageUrlPrimary;
+            imgurlsmall = productMain.ImageUrlPrimarySmall;
+
+            if (model.Images != null)
+            {
+                var imgCount = model.Images.Length;
+                for (var i = 0; i < imgCount; i++)
+                {
+                    if (model.Images[i] != null && model.Images[i].ContentLength > 0)
+                    {
+                        try
+                        {
+                            using (var img = Image.FromStream(model.Images[i].InputStream))
+                            {
+                                if (img.Width < 960)
+                                {
+                                    model.Msg += model.Images[i].FileName + " resmin genişliği 960 px den küçük olamaz.Güncellemek için <a href='/admin/product/edit/" + model.Id + "'>tıklayınız</a>";
+                                    continue;
+                                }
+
+                                if (img.RawFormat.Equals(ImageFormat.Png) ||
+                                    img.RawFormat.Equals(ImageFormat.Jpeg))
+                                {
+                                    var fileName = string.Format("{0}-{1}-{2}.jpg", model.Code, model.Title.ToUrlSlug(), i + 1 + productMain.ImageUrls.Count);
+                                    savePath = "/s/img/bodrum/" + fileName;
+                                    imgUrlBigs.Add(savePath);
+                                    var path = Path.Combine(Server.MapPath("/s/img/bodrum/"), fileName);
+                                    model.Images[i].SaveAs(path);
+
+                                    //ImageWatermark(path);
+
+                                    imgurlsmall = string.Format("/s/img/bodrum/k{0}", fileName);
+                                    imgurl960 = string.Format("/s/img/bodrum/b{0}", fileName);
+
+                                    FileHelper.SaveImageAs250(
+                                        model.Images[i],
+                                        Path.Combine(Server.MapPath("/s/img/bodrum/"), string.Format("k{0}", fileName)));
+
+                                    var path960 = Path.Combine(Server.MapPath("/s/img/bodrum/"), string.Format("b{0}", fileName));
+
+                                    FileHelper.SaveImageAs960(
+                                        model.Images[i],
+                                        path960);
+
+                                    //ImageWatermark(path960);
+
+                                    imgUrlSmalls.Add(imgurlsmall);
+                                    imgUrls.Add(imgurl960);
+                                }
+                            }
+                        }
+                        catch { }
+                    }
+                }
+            }
+
+            
+            var result = _productRepo.Update(Query<Product>.EQ(x => x.Id, ObjectId.Parse(model.Id)),
+                                                   Update<Product>
+                                                       .Set(x => x.Price, model.Price)
+                                                       .Set(x => x.Currency, model.Currency)
+                                                       .Set(x => x.Description, model.Description)
+                                                       .Set(x => x.UpdatedBy, User.Identity.Name)
+                                                       .Set(x => x.UpdatedOn, time)
+                                                       .Set(x => x.HtmlDescription, model.HtmlDescription)
+                                                       .Set(x => x.Title, model.Title)
+                                                       .Set(x => x.Name, model.Name)
+                                                       .Set(x => x.Tags, model.Tags)
+                                                       .Set(x => x.ImageUrlPrimary, imgUrls[0])
+                                                       .Set(x => x.ImageUrls, imgUrls)
+                                                       .Set(x => x.ImageUrlPrimaryBig, imgUrlBigs[0])
+                                                       .Set(x => x.ImageUrlPrimarySmall, imgUrlSmalls[0])
+                                                       .Set(x => x.ImageUrlBigs, imgUrlBigs)
+                                                       .Set(x => x.ImageUrlSmalls, imgUrlSmalls)
+                                                       .Set(x => x.VideoUrl, model.VideoUrl)
+                                                       );
+
+
+
+            if (result.Ok)
+            {
+                //CreateSiteMap();
+                return RedirectToAction("Index", model);
             }
 
             model.Msg = "Bir sorun oluştu lütfen tekrar deneyiniz.";
@@ -491,7 +658,7 @@ namespace TaggedProducts.Web.Controllers
 
                 }
             }
-            return Json(result, JsonRequestBehavior.DenyGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

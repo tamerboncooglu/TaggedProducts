@@ -1,0 +1,194 @@
+﻿@using TaggedProducts.Domain.Entity
+@using TaggedProducts.Utils
+
+@model TaggedProducts.Web.Models.ProductModel
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.Partial("_AdminMenu")
+
+<br />
+<h3>Ürün Düzenleme Formu</h3>
+<br />
+
+@Html.Partial("Component/_ModelMsg", Model)
+
+
+<form id="frm" name="frm" action="/admin/edit" method="POST" enctype="multipart/form-data">
+    
+    <div class="row">
+
+        <div class="span5">
+            Kodu:<br />
+            <input type="text" name="Code" class="required" value="@Model.Code"/>
+        </div>
+
+        <div class="span4">
+            Bölge:<br />
+            <select name="Tags" class="required" multiple="multiple">
+                @foreach (Tag tag in ViewBag.Tags)
+                {
+                    <option value="@tag.Name" @if (Model.Tags.Contains(tag.Name))
+                                               {@MvcHtmlString.Create(" selected='selected'")}>@tag.Name</option>
+                }
+            </select>
+        </div>
+
+        
+    </div>
+
+    <div class="row">
+
+        <div class="span3">
+            Fiyat:<br />
+            <input type="text" name="Price" class="required" value="@Model.Price" />
+        </div>
+
+        <div class="span3">
+            Fiyat Birimi:<br />
+            <select name="Currency" class="required">
+                @foreach (string currency in Consts.Currencies)
+                {
+                    <option value="@currency" @if (Model.Currency == currency)
+                                              {@MvcHtmlString.Create(" selected='selected'")}>@currency</option>
+                }
+            </select>
+        </div>
+       
+    </div>
+
+    <br />
+    <div class="row">
+
+        <div class="span5">
+            Başlık:<br />
+            <input type="text" name="Title" class="required" style="width: 370px;" value="@Model.Title" />
+        </div>
+
+        <div class="span4">
+            Adı:<br />
+            <input type="text" name="Name" class="required" style="width: 290px;" value="@Model.Name" />
+        </div>
+        <div class="span3">
+            Resimler:<br />
+            <input type="file" name="Images" multiple="" />
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="span5">
+            Açıklama:<br />
+            <textarea name="Description" rows="4" class="required" style="width: 370px;">@Model.Description</textarea>
+        </div>
+
+        <div class="span4">
+            Kodu:<br />
+            <textarea name="Code" rows="4" class="required" style="width: 290px;">@Model.Code</textarea>
+        </div>
+        
+        <div  class="span3">
+            
+            <table>
+        @if (Model.ImageUrls != null && Model.ImageUrls.Any())
+        {
+            for (int i = 0; i < Model.ImageUrls.Count; i++)
+            {
+                
+            <tr>
+                <td>
+                    <input id="btnDel@(i+1)" type="button" class='btn btn-mini btn-danger confirm-delete' data-id="@(i+1)" data-name="@Model.ImageUrls[i]" value="Sil" /></td>
+                <td>
+                    <img src="@Model.ImageUrls[i]" alt="" style="height: 120px; width: 120px"/></td>
+            </tr>
+            }
+        }
+    </table>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="span5">
+            HTML Description:
+        <br />
+            <textarea name="HtmlDescription" rows="2" style="width: 370px;">@Model.HtmlDescription</textarea>
+        </div>
+
+        <div class="span4">
+            Video Url:<br />
+            <input type="text" name="VideoUrl" class="required" value="@Model.VideoUrl"/>
+        </div>
+    </div>
+    
+
+    <br />
+
+    <input type="hidden" name="Id" value="@Model.Id"/>
+
+    @Html.AntiForgeryToken()
+    <input type="submit" class="btn btn-primary" value="Kaydet" />
+
+
+    <div id="modal-from-dom" class="modal fade hidden">
+        <div class="modal-header">
+            <a href="#" onclick="javascript:$('#modal-from-dom').modal('hide');" class="close">&times;</a>
+            <h3>Emin Misiniz?</h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-danger">Evet</a>
+            <a href="#" onclick="javascript:$('#modal-from-dom').modal('hide');" class="btn">Hayır</a>
+        </div>
+    </div>
+
+</form>
+
+@section Script{
+    <script>
+        $(function () {
+            $('#frm').validate();
+        });
+
+        function deleteItem(id) {
+            $.ajax({
+                type: "POST",
+                url: "/admin/productimagedelete",
+                data: "id=" + id + "&prodId=@Model.Id",
+                success: function (r) {
+                    if (r != null) {
+                        if (r.OK) {
+                            $('#btnDel' + id).parent().parent().remove();
+                            $('#modal-from-dom').modal('hide');
+                        } else {
+                            $('#modal-from-dom .modal-body').html($('#modal-from-dom .modal-body').html() + "<br/><br/>" + "<p>İşlem sırasında bir sorun oluştu lütfen tekrar deneyiniz.</p>");
+                        }
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('#modal-from-dom').bind('show', function () {
+                var id = $(this).data('id'),
+                    itemName = $('#btnDel' + id).data('name'),
+                    removeBtn = $(this).find('.btn-danger');
+                removeBtn.attr('onclick', "javascript:deleteItem('" + id + "')");
+
+                $('.modal-body').html("<img src='" + itemName + "' alt='' style='width:100px;' /><br/>silinecek!");
+            });
+
+            $('.confirm-delete').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).data('id');
+                $('#modal-from-dom').data('id', id).modal('show');
+            });
+        });
+    </script>
+
+}

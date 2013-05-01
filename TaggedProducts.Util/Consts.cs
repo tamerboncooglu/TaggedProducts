@@ -10,7 +10,7 @@ namespace TaggedProducts.Utils
             get { return _cultureTR ?? (_cultureTR = new CultureInfo("tr-TR")); }
         }
 
-        public const string DBName = "MutfakDB";
+        public const string DBName = "TaggedProductsDB";
         public const string System = "System";
 
         private const string Euro = "EUR";

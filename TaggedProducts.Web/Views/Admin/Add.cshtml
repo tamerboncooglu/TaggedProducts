@@ -18,9 +18,9 @@
     <div class="row">
         <div class="span3">
             Kodu:<br />
-            <input type="number" name="Code" class="required" style="width: 120px;" />
+            <input type="text" name="Code" class="required" style="width: 120px;" />
         </div>
-        
+
         <div class="span3">
             Video Url:<br />
             <input type="text" name="VideoUrl" class="required" />
@@ -31,17 +31,10 @@
 
         <div class="span3">
             Bölge:<br />
-            <select name="Tags" class="required">
+            <select name="Tags" class="required" multiple="multiple">
                 @foreach (var tag in ViewBag.Tags)
                 {
-                    if (Model.Tags.Contains(tag.Name))
-                    {
-                    <option value="@tag.Name" selected="selected">@tag.Name</option>
-                    }
-                    else
-                    {
                     <option value="@tag.Name">@tag.Name</option>
-                    }
                 }
             </select>
         </div>
@@ -60,14 +53,7 @@
             <select name="Currency" class="required">
                 @foreach (var currency in Consts.Currencies)
                 {
-                    if (Model.Currency == currency)
-                    {
-                    <option value="@currency" selected="selected">@currency</option>
-                    }
-                    else
-                    {
                     <option value="@currency">@currency</option>
-                    }
                 }
             </select>
         </div>
@@ -78,12 +64,12 @@
 
         <div class="span5">
             Başlık:<br />
-            <input type="text" name="Title" class="required" style="width: 370px;" value="@(Model.Title ?? string.Empty)" />
+            <input type="text" name="Title" class="required" style="width: 370px;"/>
         </div>
 
         <div class="span4">
             Adı:<br />
-            <input type="text" name="Name" class="required" style="width: 290px;" value="@(Model.Name ?? string.Empty)" />
+            <input type="text" name="Name" class="required" style="width: 290px;"/>
         </div>
         <div class="span3">
             Resimler:<br />
@@ -96,9 +82,9 @@
 
         <div class="span5">
             Açıklama:<br />
-            <textarea name="Description" rows="4" class="required" style="width: 370px;">@(Model.Description ?? string.Empty)</textarea>
+            <textarea name="Description" rows="4" class="required" style="width: 370px;"></textarea>
         </div>
-        
+
     </div>
 
     <div class="row">
@@ -106,7 +92,7 @@
         <div class="span5">
             HTML Meta Description:
         <br />
-            <textarea name="HtmlDescription" rows="2" style="width: 370px;">@(Model.HtmlDescription ?? string.Empty)</textarea>
+            <textarea name="HtmlDescription" rows="2" style="width: 370px;"></textarea>
         </div>
 
     </div>

@@ -115,7 +115,8 @@
                             success: function (r) {
                                 if (r != null) {
                                     if (r.OK) {
-                                        $('#tagupdatewarn').html('alan güncellendi');
+                                        var str = oldValue + ' alan güncellendi';
+                                        $('#tagupdatewarn').html(str);
                                     }
                                 }
                             }

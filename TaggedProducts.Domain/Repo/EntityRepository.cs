@@ -36,7 +36,7 @@ namespace TaggedProducts.Domain.Repo
 
         public EntityRepository()
         {
-            _mongoDatabase = new MongoClient().GetServer().GetDatabase("ProductTags");
+            _mongoDatabase = new MongoClient().GetServer().GetDatabase("TaggedProducts");
             _collection = _mongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name, WriteConcern.Acknowledged);
         }
 
