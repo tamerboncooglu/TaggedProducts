@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggedProducts.Domain", "Mutfak.Domain\TaggedProducts.Domain.csproj", "{F3B206BD-3268-48DF-9A1B-CFA1995814CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggedProducts.Domain", "TaggedProducts.Domain\TaggedProducts.Domain.csproj", "{F3B206BD-3268-48DF-9A1B-CFA1995814CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggedProducts.Web", "Mutfak.Web\TaggedProducts.Web.csproj", "{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggedProducts.Web", "TaggedProducts.Web\TaggedProducts.Web.csproj", "{65EB5037-6569-41B9-ABDD-B1F28F1D7CB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggedProducts.Utils", "Mutfak.Util\TaggedProducts.Utils.csproj", "{5A3140BB-6D07-4578-8124-82C4D7903D52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggedProducts.Utils", "TaggedProducts.Util\TaggedProducts.Utils.csproj", "{5A3140BB-6D07-4578-8124-82C4D7903D52}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{065FF074-F33D-49D3-873F-EB76B869DE73}"
 	ProjectSection(SolutionItems) = preProject
