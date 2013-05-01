@@ -1,0 +1,10 @@
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\TaggedProducts.Domain.dll
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\TaggedProducts.Domain.pdb
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\MongoDB.Bson.dll
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\MongoDB.Driver.dll
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\MongoDB.Bson.pdb
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\MongoDB.Bson.xml
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\MongoDB.Driver.pdb
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\bin\Debug\MongoDB.Driver.xml
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\obj\Debug\TaggedProducts.Domain.dll
+C:\Users\TamerPc\Documents\Visual Studio 2012\Projects\TaggedProducts\Mutfak.Domain\obj\Debug\TaggedProducts.Domain.pdb

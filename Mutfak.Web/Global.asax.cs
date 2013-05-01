@@ -2,10 +2,9 @@
 using System.Web.Routing;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using TaggedProducts.Web;
 using TaggedProducts.Web.App_Start;
 
-namespace Mutfak.Web
+namespace TaggedProducts.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
