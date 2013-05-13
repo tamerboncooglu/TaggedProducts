@@ -715,6 +715,13 @@ namespace TaggedProducts.Web.Controllers
             model.Msg = "lütfen tekrar deneyiniz";
             return View(model);
         }
+
+        [HttpGet, AllowAnonymous]
+        public ActionResult Logout()
+        {
+            _formsAuthenticationService.SignOut();
+            return this.Redirect("/");
+        }
         #endregion
     }
 }
